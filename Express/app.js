@@ -34,6 +34,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(mainRoutes);
 app.use(adminRoutes);
 
+app.use((req, res, next) => {
+    res.status(400).send("<h1>404 Page not found</h1>")
+});
+
 const server = http.createServer(app);
 
 server.listen(3000);
