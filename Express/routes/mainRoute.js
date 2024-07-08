@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-    console.log("In the Second MiddleWare");
+    console.log("In the MiddleWare");
     res.send("<h1>Hello from Backend</h1>");
 });
 
