@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const adminRoutes = require('./routes/admin');
 const mainRoutes = require('./routes/shop');
+const errorPageRoute = require('./routes/error');
 
 const app = express();
 
@@ -34,9 +35,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(mainRoutes);
 app.use("/admin", adminRoutes);  // By giving admin here, the routes we dont need to write /admin/"route";
 
-app.use((req, res, next) => {
-    res.status(400).send("<h1>404 Page not found</h1>")
-});
+// app.use((req, res, next) => {
+//     res.status(400).send("<h1>404 Page not found</h1>")
+// });
+
+app.use(errorPageRoute)
 
 const server = http.createServer(app);
 
