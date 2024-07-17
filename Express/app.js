@@ -4,10 +4,12 @@ const express = require('express');
 const adminRoutes = require('./routes/admin');
 const mainRoutes = require('./routes/shop');
 const errorPageRoute = require('./routes/error');
+const path = require('path');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public'))); // Function to serve static files
 
 // app.use('/', (req, res, next) => {   // MiddleWare for example
 //     console.log("In the First MiddleWare");
